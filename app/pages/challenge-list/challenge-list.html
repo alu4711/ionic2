@@ -1,0 +1,17 @@
+<ion-navbar *navbar>
+    <button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Brokers</ion-title>
+</ion-navbar>
+
+<ion-content>
+    <ion-list>
+        <button ion-item *ngFor="#broker of brokers" (click)="itemTapped($event, broker)">
+            <ion-avatar item-left>
+                <img src="{{broker.picture}}"/>
+            </ion-avatar>
+            <p>{{broker.title}}</p>
+        </button>
+    </ion-list>
+</ion-content>

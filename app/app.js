@@ -1,11 +1,14 @@
 import {App, IonicApp, Platform} from 'ionic-angular';
 import {GettingStartedPage} from './pages/getting-started/getting-started';
 import {ListPage} from './pages/list/list';
+import {ChallengeListPage} from './pages/challenge-list/challenge-list';
+import {ChallengeService} from './services/challenge-service';
 
 
 @App({
   templateUrl: 'build/app.html',
-  config: {} // http://ionicframework.com/docs/v2/api/config/Config/
+  config: {},
+  providers: [ChallengeService]
 })
 class MyApp {
   static get parameters() {
@@ -15,13 +18,13 @@ class MyApp {
   constructor(app, platform) {
     this.app = app;
     this.platform = platform;
-
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Getting Started', component: GettingStartedPage },
-      { title: 'List', component: ListPage }
+      { title: 'List', component: ListPage },
+      { title: 'Challenges', component: ChallengeListPage }
     ];
 
     this.rootPage = GettingStartedPage;
